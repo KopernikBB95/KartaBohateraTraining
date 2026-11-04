@@ -41,8 +41,71 @@ bool alive = health > 0;
 bool fullHealth = health == 100;
 bool needsHealing = !fullHealth;
 bool injured = health < 50;
-bool wealthy = gold > 500;
+string wealthy = gold > 500 ? "Wealthy" : "Not wealthy";
 string status;
+
+
+if (alive)
+{
+    if (injured)
+    {
+        if (healthPotions > 0)
+            status= "You're injured, use some potions.";
+        else
+        {
+            status ="You're injured, get some potions.";
+        }
+    }
+    else
+    {
+        if(map)
+        {
+            if(healthPotions > 0)
+            {
+                status = "You're ready for adventure!";
+            }
+            else
+            {
+                status = "You've got the map but get some potions before setting off.";
+            }
+        }
+        else
+        {
+            status ="You're not ready, get the map.";
+        }
+    }
+}
+else
+{
+    status = "Dead";
+}
+
+/*
+if (!alive)
+{
+    status = "You're dead.";
+}
+else if (injured && healthPotions > 0)
+{
+    status = "You're injured use some potions.";
+}
+else if  (injured)
+{
+    status = "You're injured and out of potions, get some";
+}
+else if (!map)
+{
+    status = "You're not ready, get the map";
+}
+else if (healthPotions < 1)
+{
+    status = "You've got the map but get some potions before setting out";
+}
+else
+{
+    status = "You're ready for adventure";
+}
+*/
 
 Console.WriteLine("============================");
 Console.WriteLine("X                          X");
@@ -62,6 +125,7 @@ Console.WriteLine($"X Obrazenia: {strength + attack,-10}    X");
 Console.WriteLine($"X Ob krytyczne: {strength + attack * 2,-10} X");
 Console.WriteLine($"X Zyje: {alive,-5}              X");
 Console.WriteLine($"X Potrzebuje heal: {needsHealing,-5}   X");
+Console.WriteLine($"X Stan: {status,-7}           X");
 
 
 health -=5;
