@@ -115,7 +115,7 @@ Console.WriteLine("============================");
 Console.WriteLine("X                          X");
 Console.WriteLine($"X Bohater: {name,-10}  \"{mapSymbol}\" X");
 Console.WriteLine($"X Poziom: {level,-7}           X");
-Console.WriteLine($"X Zycie: {health,-3}/{MaxHealth} ({healthPercentage,-6:F2,-6}%) X");
+Console.WriteLine($"X Zycie: {health,-3}/{MaxHealth} ({healthPercentage:F2}%) X");
 Console.WriteLine($"X Plecak: {backpackSpace,-2}/{MaxBackpackSpace}            X");
 Console.WriteLine($"X Plecak wolne miejsce: {MaxBackpackSpace-backpackSpace,-2} X");
 Console.WriteLine($"X Czlonkowie drużyny: {teamMembers}    X");
